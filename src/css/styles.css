@@ -33,10 +33,24 @@ ul {
   list-style: none;
 }
 
+fieldset {
+  margin-bottom: 8px;
+}
+
+.delay-form {
+  width: 272px;
+}
+
+.form {
+  width: 400px;
+  border: 2px solid #808080;
+  padding: 20px;
+}
+
 .nav {
   color: rgba(97, 93, 97, 0.973);
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 4px 15px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background-color: rgba(227, 222, 227, 0.826);
@@ -62,6 +76,7 @@ ul {
   display: inline-block;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
 }
 
 .value {
@@ -71,8 +86,6 @@ ul {
   font-weight: 400;
   line-height: 1.2; /* 120% */
   letter-spacing: 1.6px;
-  /* width: 55px; */
-  /* width: 100%; */
 }
 
 .timer {
@@ -91,35 +104,36 @@ ul {
 
 .label {
   color: #2e2f42;
-  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5; /* 150% */
+  padding: 8px 43px;
 }
 
 .wrap {
   margin-bottom: 32px;
 }
 
-.go-back {
-  margin-bottom: 32px;
-}
-
-
 .start-btn {
   border-radius: 8px;
-  background: #4E75FF;
+  background: #4e75ff;
   border: none;
   width: 75px;
   padding: 5px;
 }
 
 .start-btn:disabled {
-  background: #CFCFCF;
+  background: #cfcfcf;
 }
 
 .start-btn:active {
-  background: #6C8CFF;
+  background: #6c8cff;
 }
 
+.radio-btn {
+  color: #2e2f42;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 8px 16px;
+}
