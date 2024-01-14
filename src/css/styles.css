@@ -1,14 +1,4 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
-
-:root {
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -22,4 +12,121 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+} */
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav {
+  color: rgba(97, 93, 97, 0.973);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background-color: rgba(227, 222, 227, 0.826);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.back-btn {
+  color: rgba(97, 93, 97, 0.973);
+  border-radius: 5px;
+  padding: 4px 15px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background-color: rgba(227, 222, 227, 0.826);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.value {
+  color: #2e2f42;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2; /* 120% */
+  letter-spacing: 1.6px;
+  /* width: 55px; */
+  /* width: 100%; */
+}
+
+.timer {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.label {
+  color: #2e2f42;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+}
+
+.wrap {
+  margin-bottom: 32px;
+}
+
+.go-back {
+  margin-bottom: 32px;
+}
+
+.iziToast-wrapper-bottomRight {
+  border-radius: 4px;
+  background: #ef4040;
+  width: 302px;
+  height: 64px;
+  position: absolute;
+}
+
+.start-btn {
+  border-radius: 8px;
+  background: #4E75FF;
+  border: none;
+  width: 75px;
+  padding: 5px;
+}
+
+.start-btn:disabled {
+  background: #CFCFCF;
+}
+
+.start-btn:active {
+  background: #6C8CFF;
+}
+
