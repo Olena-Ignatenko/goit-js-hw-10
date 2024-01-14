@@ -106,13 +106,6 @@ ul {
   margin-bottom: 32px;
 }
 
-.iziToast-wrapper-bottomRight {
-  border-radius: 4px;
-  background: #ef4040;
-  width: 302px;
-  height: 64px;
-  position: absolute;
-}
 
 .start-btn {
   border-radius: 8px;

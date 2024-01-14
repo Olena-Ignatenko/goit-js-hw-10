@@ -104,3 +104,4 @@ function updateTimer({ days, hours, minutes, seconds }) {
   refs.minutesEl.textContent = minutes;
   refs.secondsEl.textContent = seconds;
 }
+
