@@ -14,6 +14,7 @@ const refs = {
 
 // Змінна для збереження обраної дати та часу
 let selectedDate = null;
+let timerInterval = null; // Додана змінна для збереження інтервалу таймера
 
 // Налаштування для flatpickr
 const options = {
@@ -27,19 +28,19 @@ const options = {
     // Отримуємо поточну дату
     const currentDate = new Date();
     if (selectedDate.getTime() <= currentDate.getTime()) {
+      refs.startBtn.disabled = true;
       iziToast.error({
         title: 'Error',
         message: 'Please choose a date in the future!',
         position: 'topRight',
       });
-      refs.startBtn.disabled = true;
     } else {
-      iziToast.success({
-        title: 'Success',
-        message: 'Valid date!',
-        position: 'center',
-      });
       refs.startBtn.disabled = false;
+      // iziToast.success({
+      //   title: 'Success',
+      //   message: 'Valid date!',
+      //   position: 'center',
+      // });
     }
   },
 };
@@ -47,26 +48,25 @@ const options = {
 // Ініціалізація flatpickr
 flatpickr(refs.datetimePicker, options);
 
-// Об'єкт таймера
 const timer = {
   intervalId: null,
   start() {
-    if (!selectedDate) {
+    if (!selectedDate || timerInterval) {
       return;
     }
 
-    // Запускаємо інтервал, що викликається кожну секунду
-    this.intervalId = setInterval(() => {
+    timerInterval = setInterval(() => {
       const currentTime = Date.now();
       const deltaTime = selectedDate - currentTime;
 
-      if (deltaTime < 0) {
-        clearInterval(this.intervalId);
-        return;
+      if (deltaTime <= 0) {
+        clearInterval(timerInterval);
+        timerInterval = null; // Скидаємо змінну після завершення таймера
+        updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        const timeComponents = convertMs(deltaTime);
+        updateTimer(timeComponents);
       }
-
-      const timeComponents = convertMs(deltaTime);
-      updateTimer(timeComponents);
     }, 1000);
   },
 };
@@ -93,10 +93,6 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
-
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
@@ -107,4 +103,3 @@ function updateTimer({ days, hours, minutes, seconds }) {
   refs.minutesEl.textContent = minutes;
   refs.secondsEl.textContent = seconds;
 }
-
