@@ -36,11 +36,11 @@ const options = {
       });
     } else {
       refs.startBtn.disabled = false;
-      // iziToast.success({
-      //   title: 'Success',
-      //   message: 'Valid date!',
-      //   position: 'center',
-      // });
+      iziToast.success({
+        title: 'OK!',
+        message: 'You can press Start!',
+        position: 'center',
+      });
     }
   },
 };
@@ -49,11 +49,13 @@ const options = {
 flatpickr(refs.datetimePicker, options);
 
 const timer = {
-  intervalId: null,
+  // timerInterval: null,
   start() {
     if (!selectedDate || timerInterval) {
       return;
     }
+    // Блокуємо інпут при старті таймера
+    refs.datetimePicker.disabled = true;
 
     timerInterval = setInterval(() => {
       const currentTime = Date.now();
@@ -63,6 +65,9 @@ const timer = {
         clearInterval(timerInterval);
         timerInterval = null; // Скидаємо змінну після завершення таймера
         updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        // Розблоковуємо інпут і кнопку після закінчення таймера
+        refs.datetimePicker.disabled = false;
+        refs.startBtn.disabled = false;
       } else {
         const timeComponents = convertMs(deltaTime);
         updateTimer(timeComponents);
@@ -72,6 +77,7 @@ const timer = {
 };
 
 refs.startBtn.addEventListener('click', () => {
+  refs.startBtn.disabled = true;
   if (selectedDate) {
     timer.start();
   }
